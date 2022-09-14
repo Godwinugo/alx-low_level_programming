@@ -1,1 +1,1 @@
-This program will assign a random number to the variable n each time it is executed
+a program that prints _putchar, followed by a new line
