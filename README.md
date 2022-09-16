@@ -1,2 +1,1 @@
-a program that prints _putchar, followed by a new line
-My debugging codes
+This is the directory that contains all the work file and codes
