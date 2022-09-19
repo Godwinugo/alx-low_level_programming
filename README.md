@@ -1,1 +1,1 @@
-This is the directory that contains all the work file and codes
+this repository contains work on pointer arrays and strings
