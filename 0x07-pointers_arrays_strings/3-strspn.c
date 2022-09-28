@@ -26,3 +26,4 @@ if (!accept[j])
 break;
 }
 return (i);
+}
