@@ -1,40 +1,59 @@
 #include "main.h"
 
-int find_sqrt(int num, int root);
-int _sqrt_recursion(int n);
+int find_strlen(char *s);
+int check_palindrome(char *s, int len, int index);
+int is_palindrome(char *s);
 
 /**
-* find_sqrt - Finds the natural square root of an inputted number.
-* @num: The number to find the square root of.
-* @root: The root to be tested.
+* find_strlen - Returns the length of a string.
+* @s: The string to be measured.
 *
-* Return: If the number has a natural square root - the square root.
-*         If the number does not have a natural square root - -1.
+* Return: The length of the string.
 */
 
-int find_sqrt(int num, int root)
+int find_strlen(char *s)
 {
-if ((root * root) == num)
-return (root);
-if (root == num / 2)
-return (-1);
-return (find_sqrt(num, root + 1));
+int len = 0;
+if (*(s + len))
+{
+len++;
+len += find_strlen(s + len);
+}
+return (len);
 }
 
 /**
-* _sqrt_recursion - Returns the natural square root of a number.
-* @n: The number to return the square root of.
+* check_palindrome - Checks if a string is a palindrome.
+* @s: The string to be checked.
+* @len: The length of s.
+* @index: The index of the string to be checked.
 *
-* Return: If n has a natural square root - the natural square root of n.
-*         If n does not have a natural square root - -1.
+* Return: If the string is a palindrome - 1.
+*         If the string is not a palindrome - 0.
 */
 
-int _sqrt_recursion(int n)
+int check_palindrome(char *s, int len, int index)
 {
-int root = 0;
-if (n < 0)
-return (-1);
-if (n == 1)
+if (s[index] == s[len / 2])
 return (1);
-return (find_sqrt(n, root));
+if (s[index] == s[len - index - 1])
+return (check_palindrome(s, len, index + 1));
+return (0);
+}
+
+/**
+* is_palindrome - Checks if a string is a palindrome.
+* @s: The string to be checked.
+*
+* Return: If the string is a palindrome - 1.
+*         If the string is not a palindrome - 0.
+*/
+
+int is_palindrome(char *s)
+{
+int index = 0;
+int len = find_strlen(s);
+if (!(*s))
+return (1);
+return (check_palindrome(s, len, index));
 }

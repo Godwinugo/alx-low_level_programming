@@ -1,18 +1,21 @@
 #include <stdio.h>
 
 /**
-* _strlen_recursion - prints a string
+* _pow_recursion - return x raised to the power of y
 *
-* @s: source string
+* @x: number
+* @y: raised to the power of
 *
-* Return: len or 0
+* Return: result
 */
 
-int _strlen_recursion(char *s)
+int _pow_recursion(int x, int y)
 {
-if (!s || !*s)
-{
-return (0);
-}
-return (1 + _strlen_recursion(s + 1));
+if (y == 1)
+return (x * 1);
+if (x == 0 || y == 0)
+return (1);
+if (y < 0)
+return (-1);
+return (x * _pow_recursion(x, y - 1));
 }
